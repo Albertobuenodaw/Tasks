@@ -21,7 +21,7 @@ class TasksController extends Controller
         $task->name = $request->name;
         $task->save;
 
-        return redirect()->route('tasks')->with('success','Task created successful');
+        return view('tasks.index')->with('success','Task created successful');
     }
 
     function update(){

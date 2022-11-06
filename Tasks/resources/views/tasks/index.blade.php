@@ -8,7 +8,7 @@
                 <input type="text" class="form-control" id="taskInput" aria-describedby="emailHelp" placeholder="Task name" name="taskName">
                 <small id="taskHelper" class="form-text text-muted">Done is better than perfect!</small>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" style="background-color:transparent; color: black; border-color: grey;"><b>+</b> Add Task</button>
         </form>
     </div>
 @endsection

@@ -9,10 +9,11 @@ class TasksController extends Controller
 {
     //
     function index(){
-
+        $tasks = Task::all();
+        return view('tasks.index')->with('tasks', $tasks);
     }
 
-    function store(Requet $request){
+    function store(Request $request){
         $request->validate([
             'name' => ' required'
         ]);
@@ -21,18 +22,26 @@ class TasksController extends Controller
         $task->name = $request->name;
         $task->save;
 
-        return view('tasks.index')->with('success','Task created successful');
+        return redirect()->route('tasks')->with('success', 'Task created successfully');
+    }
+
+    function show($id){
+        $task = Task::find($id);
+        return view('tasks.show', ['tasks' => $tasks]);
     }
 
     function update(){
+        $task = Task::find($id);
+        
+        $task->name = $request->name;
+        $task->save();
 
+        return redirect()->route('tasks')->with('success', 'Task updated successfully');
     }
     
     function destroy(){
 
     }
 
-    function edit (){
-
-    }
+   
 }

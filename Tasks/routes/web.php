@@ -17,4 +17,4 @@ use App\Http\Controllers\TasksController;
 Route::get('/', function () {
     return view('app');
 });
-Route:get('/taks', [TasksController::class, store])->name('tasks');
+Route:get('/tasks', [TasksController::class, store])->name('tasks');

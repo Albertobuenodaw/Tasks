@@ -26,9 +26,9 @@
             </div>
             <div class="col-md-3 d-flex justify-content-end">
                 <form action="{{route('tasks-destroy',[$task->id])}}" method="POST">
-                @mehod(DELETE)
-                @csrf
-                <button class="btn btn-danger btn-sm">Eliminar </button> 
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn btn-danger btn-sm">Eliminar </button> 
                 </form>
             </div>
             @endforeach

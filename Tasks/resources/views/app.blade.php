@@ -35,10 +35,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/tasks">Tasks</a>
                 </li>
-                <!--
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Categorias</a>
-                </li>-->
             </ul>
         </div>
     </nav>

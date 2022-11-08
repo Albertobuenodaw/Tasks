@@ -7,41 +7,36 @@ use App\Models\Task;
 
 class TasksController extends Controller
 {
-    //
     function index(){
         $tasks = Task::all();
         return view('tasks.index')->with('tasks', $tasks);
     }
 
     function store(Request $request){
-        $request->validate([
-            'name' => ' required'
-        ]);
-
         $task = new Task;
         $task->name = $request->name;
-        $task->save;
-
+        $task->save();
+        
         return redirect()->route('tasks')->with('success', 'Task created successfully');
+    }
+
+    
+    public function destroy($id){
+        $task = Task::find($id);
+        $task->delete();
+        return redirect()->route('tasks')->with('success', 'Task deleted successfully');
     }
 
     function show($id){
         $task = Task::find($id);
-        return view('tasks.show', ['tasks' => $tasks]);
+        return view('tasks.show', ['task' => $task]);
     }
 
-    function update(){
+    function update(Request $request, $id){
         $task = Task::find($id);
-        
         $task->name = $request->name;
         $task->save();
 
-        return redirect()->route('tasks')->with('success', 'Task updated successfully');
+        return redirect()->route('task')->with('success', 'Task updated successfully');
     }
-    
-    function destroy(){
-
-    }
-
-   
 }
